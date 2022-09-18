@@ -1,4 +1,4 @@
-package com.financier.service.system.entity.domain;
+package com.financier.system.entity.domain;
 
 import org.apache.ibatis.type.Alias;
 

@@ -1,4 +1,4 @@
-package com.financier.service.system.exception;
+package com.financier.system.exception;
 
 /**
  * 自定义基础异常

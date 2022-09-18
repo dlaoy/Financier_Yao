@@ -1,4 +1,4 @@
-package com.financier.service.system;
+package com.financier.system;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
