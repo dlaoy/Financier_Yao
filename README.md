@@ -1,16 +1,30 @@
 # Financier 家庭财务系统
 ## 整体描述
 
-后端采用 SpringBoot + MyBatis+Redis+MySQL 技术开发，前端使用 Vue/Element 框架开发。
+| 使用技术   |
+| ---------- |
+| Vue        |
+| Element    |
+| SpringBoot |
+| MyBatis    |
+| MySQL      |
 
 ## 登录模块
 
 ### SpringBoot 部分
 
-* [X] 接收前端的账号和密码 
-* [X]  读取数据库 role 表 username 字段和 password 字段进行校验
-* [ ] MD5 加盐加密技术
-* [X]  返回校验代码
+* [x] 接收前端的账号和密码 
+  * 前端提交的数据交给 service.user 下的 CheckLogin 进行逻辑判断返回 json 结果
+  * 使用 MyBatis 读取数据库 role 表 username 字段和 password 字段进行校验
+
+* [x] 返回判断结果是校验代码
+
+* [x] MD5 加盐加密技术
+
+  * 前端和后端采用相同盐加密格式。
+  * [+] 数据请求中 Payload 含有密码 md5 加密结果，存在安全隐患。
+
+  
 
 ### Vue 部分
 

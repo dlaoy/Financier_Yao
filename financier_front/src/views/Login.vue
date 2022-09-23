@@ -1,3 +1,4 @@
+<!--奇哉至理，常净常清。 @Enrace-->
 <template>
   <body id="login-page">
   <el-form class="login-container" label-position="left" label-width="0px">
@@ -55,8 +56,9 @@ export default {
         loginName: "",
         loginPasswd: "",
       },
-      responseResult: [],errorInfo: "",
-      fisrtSalt: "6cb4e06bd04deb682309cbb0cf08916f"
+      responseResult: [],
+      errorInfo: "",
+      saltData:"22ba2ce7e5203e6e885b8fc68a020851",
     };
   },
   methods: {
@@ -67,9 +69,11 @@ export default {
         if(this.loginForm.loginPasswd === ""){
           this.errorInfo = "请输入密码"
         } else {
+          console.log(this.saltData)
           this.$axios.post('/loginUser', {
             userName: this.loginForm.loginName,
-            password: this.$md5(this.loginForm.loginPasswd)
+            password: this.$md5(this.$md5(this.loginForm.loginPasswd)+this.saltData)
+            // password: this.$md5("password") //del
           })
               .then(successResponse => {
                 if (successResponse.data.loginState === 200) {

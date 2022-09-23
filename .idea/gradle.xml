@@ -5,7 +5,7 @@
       <GradleProjectSettings>
         <option name="delegatedBuild" value="true" />
         <option name="testRunner" value="GRADLE" />
-        <option name="distributionType" value="LOCAL" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/financier_back" />
         <option name="gradleJvm" value="18" />
         <option name="modules">
