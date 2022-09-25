@@ -61,7 +61,18 @@ export default {
       saltData:"22ba2ce7e5203e6e885b8fc68a020851",
     };
   },
+  mounted(){
+    this.init()
+  },
   methods: {
+    init(){
+      this.$axios.post('/loginStatus').then(successResponse => {
+        if (successResponse.data.loginState === 200) {
+          this.$message("您已登录该网站")
+          this.urlClick()
+        }
+      })
+    },
     login() {
       if(this.loginForm.loginName === "") {
         this.errorInfo = "请输入账号"
@@ -69,11 +80,9 @@ export default {
         if(this.loginForm.loginPasswd === ""){
           this.errorInfo = "请输入密码"
         } else {
-          console.log(this.saltData)
           this.$axios.post('/loginUser', {
             userName: this.loginForm.loginName,
             password: this.$md5(this.$md5(this.loginForm.loginPasswd)+this.saltData)
-            // password: this.$md5("password") //del
           })
               .then(successResponse => {
                 if (successResponse.data.loginState === 200) {
@@ -90,7 +99,7 @@ export default {
     },
     clearError() {
       this.errorInfo = "";
-    }
+    },
   }
 };
 </script>

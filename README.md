@@ -16,20 +16,22 @@
 * [x] 接收前端的账号和密码 
   * 前端提交的数据交给 service.user 下的 CheckLogin 进行逻辑判断返回 json 结果
   * 使用 MyBatis 读取数据库 role 表 username 字段和 password 字段进行校验
-
 * [x] 返回判断结果是校验代码
-
-* [x] MD5 加盐加密技术
+* [x] MD5 加盐加密
 
   * 前端和后端采用相同盐加密格式。
   * [+] 数据请求中 Payload 含有密码 md5 加密结果，存在安全隐患。
 
-  
+
+* [x] 后端使用 session 验证用户登录
+  * 使用 redis 缓存 session
+
+
 
 ### Vue 部分
 
-* [ ] main.js 进行 登录拦截
-* [ ] 每个页面检查服务器存在的 cookie 
+* [x] main.js 进行 登录拦截
+  * 在 router/index.js 中设置钩子函数，发送请求道 /loginStatus 判断登录状态。
 * [ ] cookie 销毁
 
 ## 主页模块
